@@ -32,7 +32,5 @@ axios("https://www.bestbuy.com/site/promo/tvs-for-gaming")
 
         list.push({ sku, prodName, splitPrice });
       });
-
-    console.log(list);
   })
   .catch((err) => console.log(err));
