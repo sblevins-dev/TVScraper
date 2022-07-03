@@ -9,6 +9,9 @@ const { response } = require("express");
 const PORT = 8000;
 const app = express();
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
 // routes
 app.use('/addPhones', require('./routes/phoneRoutes'))
 
@@ -29,8 +32,11 @@ const URL =
 
 const addPhone = async (phone) => {
   try {
-    const response = await axios.post("/addPhones", phone);
-    return response
+    const response = await axios.post("http://localhost:8000/addPhones", phone, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   } catch (err) {
     console.log(err);
   }
