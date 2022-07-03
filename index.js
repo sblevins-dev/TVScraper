@@ -76,7 +76,7 @@ axios(URL)
         .find(".shop-sku-list-item")
         .each(async (i, el) => {
           const sku = parseInt($(el).children("div").attr("data-sku-id"));
-          const prodImg = baseUrl + $(el).find(".image-link").attr("href");
+          const prodImg = $(el).find(".product-image").attr("src");
           const prodHref =
             baseUrl +
             $(el).find(".information").find(".sku-title a").attr("href");
